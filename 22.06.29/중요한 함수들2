@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StringApp02
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("ABC".ToLower());     //대문자를 소문자로.
+            Console.WriteLine("abc".ToUpper());     //소문자를 대문자로.
+
+            Console.WriteLine("Happy  Friday!".Insert(6, "Sunny"));     //몇번째 자리에 넣을 것이냐
+            Console.WriteLine("I Don't Love You".Remove(2, 6));         //지정된 2~6자리의 문자열을 삭제
+
+            Console.WriteLine("   ABC   ");
+            Console.WriteLine("   ABC   ".Trim());      //공백 삭제
+        }
+    }
+}
