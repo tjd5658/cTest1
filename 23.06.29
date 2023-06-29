@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StringApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string greeting = "Good Morning";
+
+            Console.WriteLine(greeting);
+            Console.WriteLine();
+
+            //IndexOf 몇번째 위치냐 알 수 있음.
+            Console.WriteLine($"{greeting.IndexOf("Morning")}");
+            Console.WriteLine($"{greeting.IndexOf("d")}");
+
+            //LastIndexOf() 마지막 위치가 몇번째인지 알 수 있음
+            Console.WriteLine($"{greeting.LastIndexOf("Good")}");
+            Console.WriteLine($"{greeting.LastIndexOf("o")}");
+
+            //StartsWith() 언제 시작하냐
+            Console.WriteLine($"{greeting.StartsWith("Good")}");
+            Console.WriteLine($"{greeting.StartsWith("Morning")}");
+
+            //EndsWith()
+            Console.WriteLine($"{greeting.EndsWith("Good")}");
+            Console.WriteLine($"{greeting.EndsWith("Morning")}");
+
+            //Contains() 그 단어가 있니?  !!중요!!
+            Console.WriteLine($"Contains Evening : {greeting.Contains("Evening")}");
+            Console.WriteLine($"Contains Evening : {greeting.Contains("Morning")}");
+
+            //Replace() 모닝에서 이브닝으로 바꾸는 것
+            Console.WriteLine($"Replace Evening : {greeting.Replace("Morning", "Evening")}");
+
+        }
+    }
+}
