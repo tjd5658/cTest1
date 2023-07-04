@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOPApp013
+{
+    class Cat
+    {
+        public Cat()    //디폴트 생성자
+        {
+            Console.WriteLine("객체가 생성되었습니다.");
+        }
+        ~Cat()          //소멸자
+        {
+            Console.WriteLine("객체가 소멸되었습니다.");
+        }
+    }
+    class RussianBlue : Cat
+    {
+        public RussianBlue()
+        {
+            Console.WriteLine("러시안블루 객체가 생성되었습니다.");
+        }
+        ~RussianBlue()
+        {
+            Console.WriteLine("러시안블루 소멸자가 호출되었습니다.");
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Cat cat = new Cat();
+            RussianBlue rb = new RussianBlue();
+        }
+    }
+}
