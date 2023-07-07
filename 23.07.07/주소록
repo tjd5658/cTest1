@@ -1,0 +1,112 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 주소록_메뉴
+{
+    class Menu
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string PhoneNumber { get; set; }
+
+        public Menu(int id, string name, string phoneNumber)
+        {
+            ID = id;
+            Name = name;
+            PhoneNumber = phoneNumber;
+        }
+    }
+    internal class Program
+    {
+        static int N = 0;
+
+        static void Main(string[] args)
+        {
+            List<Menu> menus = new List<Menu>();
+            
+            while (true)
+            {
+                UIinit();
+                switch (N)
+
+                {
+                    case 1:
+                        Console.Write("아이디를 입력해주세요. : ");
+                        int id = Int32.Parse(Console.ReadLine());
+                        Console.Write("이름을 입력해주세요. : ");
+                        string name = Console.ReadLine();
+                        Console.Write("전화번호를 입력해주세요. : ");
+                        string phonenumber = Console.ReadLine();
+                        Menu m = new Menu(id, name, phonenumber);
+                        menus.Add(m);
+                        Console.WriteLine("\n데이터가 정상적으로 삽입되었습니다.\n");
+                        break;
+                    case 2:
+                        Console.Write("삭제할 아이디를 입력해주세요. : ");
+                        int di = Int32.Parse(Console.ReadLine());
+                        foreach (Menu me in menus)
+                        {
+                            if (me.ID == di)
+                            {
+                                menus.Remove(me);
+                                Console.Write("삭제되었습니다.");
+                                break;
+                            }
+                        }
+                        Console.WriteLine();
+                        break;
+                    case 3:
+                        Console.WriteLine("\n데이터 조회\n");
+                        foreach (Menu me in menus)
+                        {
+                            Console.WriteLine("ID : {0}  Name : {1} Pnumber : {2}", me.ID, me.Name, me.PhoneNumber);
+                        }
+                        break;
+                    case 4:
+                        Console.Write("수정할 정보의 아이디를 입력해주세요. : ");
+                        int su = Int32.Parse(Console.ReadLine());
+                        foreach (Menu me in menus)
+                        {
+                            if(me.ID == su)
+                            {
+                                Console.Write("바꿀 아이디를 입력해주세요. : ");
+                                int susu =Int32.Parse(Console.ReadLine());
+                                Console.Write("바꿀 이름을 입력해주세요. : ");
+                                string na =Console.ReadLine();
+                                Console.Write("바꿀 전화번호를 입력해주세요. : ");
+                                string jun = Console.ReadLine();
+                                me.ID = susu;
+                                me.Name = na;
+                                me.PhoneNumber = jun;
+                            }
+                        }
+                        Console.WriteLine("\n데이터가 정상적으로 수정되었습니다.\n");
+                        break;
+                    case 5:
+                        Console.WriteLine("\n프로그램을 종료합니다.\n");
+                        Console.WriteLine("안녕히 계세요. 수고하셨습니다.\n");
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("\n잘못된 메뉴를 입력하셨습니다. \n\n다시 입력 해 주세요.\n");
+                        break;
+                }
+            }
+        }
+        static void UIinit() 
+        { 
+                Console.WriteLine("1. 데이터 삽입");
+                Console.WriteLine("2. 데이터 삭제");
+                Console.WriteLine("3. 데이터 조회");
+                Console.WriteLine("4. 데이터 수정");
+                Console.WriteLine("5. 프로그램 종료");
+
+                Console.Write("메뉴 : ");
+                N = Int32.Parse(Console.ReadLine());                    
+            }
+        }
+    }
+
